@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
         //if (timeDelayed >= delayTime)
         //{
             sendTransform();
-            //sendRotation();
+            sendRotation();
             //timeDelayed = 0;
         //}
         Rotate();
@@ -71,10 +71,10 @@ public class PlayerController : MonoBehaviour {
         byte[] y = System.BitConverter.GetBytes(transform.position.y);
         byte[] z = System.BitConverter.GetBytes(transform.position.z);
 
-        byteArray[0] = 1;
-        byteArray[1] = 1;
-        byteArray[2] = 1;
-        byteArray[3] = 1;
+        byteArray[0] = 0;
+        byteArray[1] = 0;
+        byteArray[2] = 0;
+        byteArray[3] = 0;
 
         byteArray[4] = x[0];
         byteArray[5] = x[1];
@@ -114,10 +114,10 @@ public class PlayerController : MonoBehaviour {
         byte[] y = System.BitConverter.GetBytes(transform.rotation.y);
         byte[] z = System.BitConverter.GetBytes(transform.rotation.z);
 
-        byteArray[0] = 0;
-        byteArray[1] = 0;
-        byteArray[2] = 0;
-        byteArray[3] = 0;
+        byteArray[0] = 1;
+        byteArray[1] = 1;
+        byteArray[2] = 1;
+        byteArray[3] = 1;
 
         byteArray[4] = x[0];
         byteArray[5] = x[1];
@@ -134,13 +134,7 @@ public class PlayerController : MonoBehaviour {
         byteArray[14] = z[2];
         byteArray[15] = z[3];
 
-        //Debug.Log(transform.position);
-
-        //Debug.Log(byteArray[0].ToString() + byteArray[1].ToString() + byteArray[2].ToString());
-
         PlayGamesPlatform.Instance.RealTime.SendMessageToAll(false, byteArray);
-
-        //dataSentText.text = "Data Sent: " + byteArray[4].ToString() + byteArray[5].ToString() + byteArray[6].ToString() + byteArray[7].ToString();
     }
 
     void FixedUpdate()
