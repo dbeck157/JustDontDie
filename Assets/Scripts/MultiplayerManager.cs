@@ -83,8 +83,11 @@ public class MultiplayerManager : MonoBehaviour {
     void FixedUpdate()
     {
         //NetworkManager.Instance.OtherPlayer.transform.position = Vector3.MoveTowards(NetworkManager.Instance.OtherPlayer.transform.position, NetworkManager.Instance.pos, speed * Time.deltaTime);
-        NetworkManager.Instance.OtherPlayer.transform.position = Vector3.Lerp(NetworkManager.Instance.OtherPlayer.transform.position, NetworkManager.Instance.pos, moveSpeed * Time.deltaTime);
-        NetworkManager.Instance.OtherPlayer.transform.rotation = Quaternion.Euler(NetworkManager.Instance.rot);
+        if (NetworkManager.Instance.OtherPlayer != null)
+        {
+            NetworkManager.Instance.OtherPlayer.transform.position = Vector3.Lerp(NetworkManager.Instance.OtherPlayer.transform.position, NetworkManager.Instance.pos, moveSpeed * Time.deltaTime);
+            NetworkManager.Instance.OtherPlayer.transform.rotation = Quaternion.Euler(NetworkManager.Instance.rot);
+        }
     }
 
     public void CreateQuickMatch()
