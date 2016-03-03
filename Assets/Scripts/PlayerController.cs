@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour {
         //timeDelayed += Time.deltaTime;
         //if (timeDelayed >= delayTime)
         //{
-            sendTransform();
+            //sendTransform();
             sendRotation();
             //timeDelayed = 0;
         //}

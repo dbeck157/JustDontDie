@@ -15,6 +15,7 @@ public class MultiplayerManager : MonoBehaviour {
     public GameObject playerDummy;
 
     float moveSpeed = 3f;
+    float rotSpeed = 3f;
 
 
     static MultiplayerManager instance = null;
@@ -86,7 +87,12 @@ public class MultiplayerManager : MonoBehaviour {
         if (NetworkManager.Instance.OtherPlayer != null)
         {
             NetworkManager.Instance.OtherPlayer.transform.position = Vector3.Lerp(NetworkManager.Instance.OtherPlayer.transform.position, NetworkManager.Instance.pos, moveSpeed * Time.deltaTime);
-            NetworkManager.Instance.OtherPlayer.transform.rotation = Quaternion.Euler(NetworkManager.Instance.rot);
+            //NetworkManager.Instance.OtherPlayer.transform.rotation = Quaternion.Euler(NetworkManager.Instance.rot);
+            //NetworkManager.Instance.OtherPlayer.transform.LookAt(NetworkManager.Instance.OtherPlayer.transform.rotation + NetworkManager.Instance.rot, Vector3.up);
+            NetworkManager.Instance.rot = NetworkManager.Instance.rot.normalized;
+            NetworkManager.Instance.OtherPlayer.transform.rotation = Quaternion.LookRotation(NetworkManager.Instance.rot);
+
+
         }
     }
 
