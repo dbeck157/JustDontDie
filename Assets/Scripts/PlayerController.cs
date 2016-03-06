@@ -50,8 +50,13 @@ public class PlayerController : MonoBehaviour {
         //timeDelayed += Time.deltaTime;
         //if (timeDelayed >= delayTime)
         //{
-            sendTransform();
+
+            
            // sendRotation();
+
+            //sendTransform();
+            //sendRotation();
+
             //timeDelayed = 0;
         //}
         Rotate();
@@ -165,5 +170,6 @@ public class PlayerController : MonoBehaviour {
     void Move()
     {
         rb.velocity = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed, 0, CrossPlatformInputManager.GetAxis("Vertical") * moveSpeed);
+        sendTransform();
     }
 }
