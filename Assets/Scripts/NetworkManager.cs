@@ -121,6 +121,7 @@ public class NetworkManager : GooglePlayGames.BasicApi.Multiplayer.RealTimeMulti
         }
         else
         {
+            PlayGamesPlatform.Instance.RealTime.LeaveRoom();
             // Error!
             // ...show error message to user...
         }
