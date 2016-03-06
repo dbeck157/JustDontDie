@@ -89,9 +89,9 @@ public class MultiplayerManager : MonoBehaviour {
             NetworkManager.Instance.OtherPlayer.transform.position = Vector3.Lerp(NetworkManager.Instance.OtherPlayer.transform.position, NetworkManager.Instance.pos, moveSpeed * Time.deltaTime);
             //NetworkManager.Instance.OtherPlayer.transform.rotation = Quaternion.Euler(NetworkManager.Instance.rot);
             //NetworkManager.Instance.OtherPlayer.transform.LookAt(NetworkManager.Instance.OtherPlayer.transform.rotation + NetworkManager.Instance.rot, Vector3.up);
-            NetworkManager.Instance.rot = NetworkManager.Instance.rot.normalized;
-            NetworkManager.Instance.OtherPlayer.transform.rotation = Quaternion.LookRotation(NetworkManager.Instance.rot);
-
+            //NetworkManager.Instance.rot = NetworkManager.Instance.rot.normalized;
+            //NetworkManager.Instance.OtherPlayer.transform.rotation = Quaternion.Euler(NetworkManager.Instance.rot);
+            NetworkManager.Instance.OtherPlayer.transform.eulerAngles = NetworkManager.Instance.rot; 
 
         }
     }

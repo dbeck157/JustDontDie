@@ -89,8 +89,8 @@ public class NetworkManager : GooglePlayGames.BasicApi.Multiplayer.RealTimeMulti
             // Handle game updating
             pos = new Vector3(floatArray2[1], floatArray2[2], floatArray2[3]);
 
-            debugText.text = "Position: " + pos.ToString();
-            dataReceivedText.text = "Data Received: " + data[4].ToString() + data[5].ToString() + data[6].ToString() + data[7].ToString();
+            //debugText.text = "Position: " + pos.ToString();
+            
         }
         // Player Rotation Data
         else if (data[0] == 1) // if the first positon in the array = 1 then it is a rotation being sent
@@ -105,6 +105,9 @@ public class NetworkManager : GooglePlayGames.BasicApi.Multiplayer.RealTimeMulti
             }
             // Handle game updating
             rot = new Vector3(floatArray2[1], floatArray2[2], floatArray2[3]);
+
+            debugText.text = "Rotation: " + rot.ToString();
+            dataReceivedText.text = "Data Received: " + data[4].ToString() + data[5].ToString() + data[6].ToString() + data[7].ToString();
         }
     }
 
