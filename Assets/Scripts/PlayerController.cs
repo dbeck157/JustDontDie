@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
         //if (timeDelayed >= delayTime)
         //{
             sendTransform();
-            sendRotation();
+           // sendRotation();
             //timeDelayed = 0;
         //}
         Rotate();
@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour {
     void Rotate()
     {
         transform.LookAt(transform.position + new Vector3(CrossPlatformInputManager.GetAxis("Horizontal_Rotate"), 0, CrossPlatformInputManager.GetAxis("Vertical_Rotate")), Vector3.up);
-        
+        sendRotation();
         
         if (CrossPlatformInputManager.GetAxis("Horizontal_Rotate") != 0.0f || CrossPlatformInputManager.GetAxis("Vertical_Rotate") != 0.0f)
         {

@@ -72,8 +72,6 @@ public class NetworkManager : GooglePlayGames.BasicApi.Multiplayer.RealTimeMulti
 
     public void OnRealTimeMessageReceived(bool isReliable, string senderId, byte[] data)
     {
-        
-
         // Player Transform Data
         if (data[0] == 0) // if the first positon in the array = 0 then it is a transform being sent
         {
@@ -94,9 +92,8 @@ public class NetworkManager : GooglePlayGames.BasicApi.Multiplayer.RealTimeMulti
             debugText.text = "Position: " + pos.ToString();
             dataReceivedText.text = "Data Received: " + data[4].ToString() + data[5].ToString() + data[6].ToString() + data[7].ToString();
         }
-
         // Player Rotation Data
-        if (data[0] == 1) // if the first positon in the array = 0 then it is a transform being sent
+        else if (data[0] == 1) // if the first positon in the array = 1 then it is a rotation being sent
         {
             float[] floatArray2 = new float[data.Length / 4];
             System.Buffer.BlockCopy(data, 0, floatArray2, 0, data.Length);
